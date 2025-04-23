@@ -1,0 +1,688 @@
+@import url('https://fonts.cdnfonts.com/css/arcade-classic');
+@import url('https://fonts.cdnfonts.com/css/inter');
+
+:root{
+    --background: #63a3fe;
+    --text-color: #000000;
+    --thead-color: #ffffffc1;
+}            
+
+body.dark-mode{
+    --background: #2A1A6A;
+    --text-color: #ffffff;
+    --thead-color: #16055d;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background);
+    overflow-x: hidden;
+}
+
+
+button:hover{
+    cursor: pointer;
+}
+
+.main-wrapper{
+    position: relative;
+    margin: 100px 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    max-width: 860px;
+}
+
+.cards-container{
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    gap: 50px;
+}
+
+/* PC-Card Styling */
+
+.pc-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 30%;
+    flex: 1;
+    gap: 21.8%;
+    background-image: linear-gradient(to top, #4F1E93, #8533F9);
+    height: 550px;
+}
+
+.pc-card h2{
+    color: white;
+    font-family: 'ArcadeClassic', sans-serif;
+    letter-spacing: 2px;        
+    font-size: 52px;  
+    margin-top: 30px;
+    padding: 0;                                 
+}
+
+/* USer-Card Styling */
+
+.user-card{
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    flex: 1;
+    width: 30%;
+    gap: 40px;
+    background-color: #DE1716;
+    height: 550px;
+
+}
+
+.flip-card-back h2{
+    font-family: 'ArcadeClassic', sans-serif;                                    
+    color: white;
+    letter-spacing: 2px;        
+    font-size: 52px;    
+    margin-top: -20px;
+    padding: 0;    
+}
+
+/* Avatar Frame Styling */
+
+.selection-circle{
+    position: relative;
+    margin-top: -60px;
+    padding: 0;
+    width: 170px;
+    max-width: 175px;
+    max-height: 175px;
+    height: 170px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.pcdesign{
+    background-image: linear-gradient(to top, #9D9D9D, #FFFDFD);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pcdesign h2{
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    font-size: 70px;
+}
+
+.userdesign{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    background-color: #6FC2FA;
+    box-shadow: inset 0 0 0 12px white;
+    overflow: hidden;
+}
+
+.selection-circle.userdesign img {
+    transform: rotate(-90deg);
+    width: 70%; /* Make image width 100% of the div */
+    height: 70%; /* Make image height 100% of the div */
+    object-fit: contain; /* Cover the div without stretching */
+}
+
+
+
+
+/* Versus IMG */
+
+.versus-icon{
+    z-index: 3;
+    top: 22%;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+    opacity: 0;
+    animation: appear 1s forwards;
+    transform: scale(0);
+}
+
+/* userOptions */
+
+.usermoves{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.arrow-select{
+    position: absolute;
+    top: -25px;
+}
+
+
+.options{
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    justify-content: center;
+    padding: 0;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.options img{
+   margin-top: 0px;
+}
+.options img:hover{
+    cursor: pointer;
+    transition: ease-in-out;
+}
+
+/* instructionsStyling */
+.ingame-instructions{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    flex-wrap: wrap;
+    margin-left: 15%;
+    width: 70%;
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;                                           
+}
+
+.ingame-instructions p{
+    font-weight: 200;
+    font-size: 12px;
+}
+
+/* Ready | Go button styling */
+.ready-button{
+    z-index: 2;
+    position: absolute;
+    top: -37px;
+    left: 10px;
+}
+.ready-container{
+    position: relative;
+}
+.go-button{
+    z-index: 2;
+    position: absolute;
+    top: -36px;
+    left: 42px;
+    background-color: transparent;
+}
+.go-button img{
+    margin-top: -2px;
+}
+.go-button:hover{
+    cursor: pointer;
+}
+.go-container{
+    top: 29px;
+    position: relative;
+}
+
+/* footerStyling */
+footer p {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* buttonAnimation */
+
+/* Button Styling */
+
+.go-container button {
+    z-index: 0;
+    display: inline-block;
+    border-radius: 10rem;
+    width: 190px;
+    height: 50px;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      border-radius: 10rem;
+      z-index: -2;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-image: linear-gradient(to top, #FF5500, #FEE22C);
+      transition: all .3s;
+      border-radius: 10rem;
+      z-index: -1;
+    }
+    &:hover {
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+
+
+.ready-container button {
+    z-index: 0;
+    display: inline-block;
+    border-radius: 10rem;
+    width: 190px;
+    height: 50px;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      border-radius: 10rem;
+      z-index: -2;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-image: linear-gradient(to top, #FF5500, #FEE22C);
+      transition: all .3s;
+      border-radius: 10rem;
+      z-index: -1;
+    }
+    &:hover {
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+
+  /* cardFlipAnimation */
+
+  .flip-card {
+    border-radius: 12px;
+    display: flex;
+    z-index: 1;
+    flex: 1;
+    height: 550px; /* Match the user card height */
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    background-color: #DE1716; /* Match your front card color */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Ensure text is centered vertically */
+}
+
+.flip-card-back {
+    overflow: hidden;
+    gap: 40px;
+    background-image: linear-gradient(to top, #b81010,  #DE1716);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg); /* Rotate back side to hide */
+}
+
+/* frontCardStyling */
+.flip-card-front h3{
+    font-family: 'Inter', sans-serif;  
+}
+.flip-card-front p{
+    font-family: 'Inter', sans-serif;  
+    font-weight: 200;
+}
+
+/* versusAnimation */
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+#theme-toggle{
+    text-wrap: nowrap;
+    padding: 10px;
+    border-radius: 12px;
+    background-image: linear-gradient(to top, #9D9D9D, #FFFDFD);
+    border: none;
+}
+
+.table-score{
+    color: var(--text-color);
+    position: absolute;
+    text-align: center;
+    top: 10px;
+    right: 70px;
+}
+
+
+th{
+    padding-right: 12px;
+    border: white solid 1px;
+    margin: 0;
+    background-color: var(--thead-color)
+}
+td{
+    padding-right: 12px;
+    border: white solid 1px;
+}
+
+.blur-background {
+    filter: blur(30px); /* Adjust the blur amount as desired */
+    transition: filter 0.3s ease; /* Adds a smooth transition */
+}
+
+.shine {
+    width: 1000px;
+    height: 100px;
+    margin-left: -100px;
+    transform: rotate(30deg);
+    background: linear-gradient(to bottom, transparent, rgba(200, 200, 200, 0.2), transparent);  /* Updated gradient syntax */
+    position: absolute;
+    top: 0; /* Position it at the top initially */
+    animation: shine 3s ease-in-out forwards; /* Include forwards here */
+  }
+  
+  @keyframes shine {
+    0% {
+      margin-top: -100px; /* Start above the visible area */
+      opacity: 1; /* Fully visible */
+    }
+    100% {
+      margin-top: 800px; /* End below the visible area */
+      opacity: 0; /* Fade out */
+    }
+  }
+
+  #clouds{
+    position: absolute;
+  }
+
+  .cloud {
+	width: 200px; height: 60px;
+	background: #fff;
+	border-radius: 200px;
+	-moz-border-radius: 200px;
+	-webkit-border-radius: 200px;
+	position: relative; 
+}
+
+.cloud:before, .cloud:after {
+	content: '';
+	position: absolute; 
+	background: #fff;
+	width: 100px; height: 80px;
+	position: absolute; top: -15px; left: 10px;
+	border-radius: 100px;
+	border-radius: 100px;
+	border-radius: 100px;
+	transform: rotate(30deg);
+	transform: rotate(30deg);
+	transform: rotate(30deg);
+}
+
+.cloud:after {
+	width: 120px; height: 120px;
+	top: -55px; left: auto; right: 15px;
+}
+
+/*Time to animate*/
+.x1 {
+	animation: moveclouds 15s linear infinite;
+	animation: moveclouds 15s linear infinite;
+	animation: moveclouds 15s linear infinite;
+}
+
+/*variable speed, opacity, and position of clouds for realistic effect*/
+.x2 {
+	left: 200px;
+	
+	transform: scale(0.6);
+	transform: scale(0.6);
+	transform: scale(0.6);
+	opacity: 0.6; /*opacity proportional to the size*/
+	
+	/*Speed will also be proportional to the size and opacity*/
+	/*More the speed. Less the time in 's' = seconds*/
+	animation: moveclouds 25s linear infinite;
+	animation: moveclouds 25s linear infinite;
+	animation: moveclouds 25s linear infinite;
+}
+
+.x3 {
+	left: -250px; top: -200px;
+	
+	transform: scale(0.8);
+	transform: scale(0.8);
+	transform: scale(0.8);
+	opacity: 0.8; /*opacity proportional to the size*/
+	
+	animation: moveclouds 20s linear infinite;
+	animation: moveclouds 20s linear infinite;
+	animation: moveclouds 20s linear infinite;
+}
+
+.x4 {
+	left: 470px; top: -250px;
+	transform: scale(0.75);
+	transform: scale(0.75);
+	transform: scale(0.75);
+	opacity: 0.75; /*opacity proportional to the size*/
+	
+	animation: moveclouds 18s linear infinite;
+	animation: moveclouds 18s linear infinite;
+	animation: moveclouds 18s linear infinite;
+}
+
+.x5 {
+	left: -150px; top: -150px;
+	
+	transform: scale(0.8);
+	transform: scale(0.8);
+	transform: scale(0.8);
+	opacity: 0.8; /*opacity proportional to the size*/
+	
+	animation: moveclouds 20s linear infinite;
+	animation: moveclouds 20s linear infinite;
+	animation: moveclouds 20s linear infinite;
+}
+
+@keyframes moveclouds {
+	0% {margin-left: 1000px;}
+	100% {margin-left: -1000px;}
+}
+@keyframes moveclouds {
+	0% {margin-left: 1000px;}
+	100% {margin-left: -1000px;}
+}
+@keyframes moveclouds {
+	0% {margin-left: 1000px;}
+	100% {margin-left: -1000px;}
+}
+
+.main-buttons{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 45px;
+    top: 20px;
+    width: fit-content;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    gap: 10px;
+}
+
+#soundbttn{
+    width: 80px;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    background-image: linear-gradient(to top, #9D9D9D, #FFFDFD);
+}
+
+/* gameResult */
+#game-result{
+    top: -80px;
+    width: 80%;
+    background-image: linear-gradient(to top, #E4720F, #EEE078);
+    height: 100px;
+    position: absolute;
+    z-index: 5;
+    display: none;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+#game-result-text{
+    font-family: 'Inter', sans-serif;    
+    font-weight: 800;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+#computer-move-text{
+    font-family: 'Inter', sans-serif;    
+    font-weight: 200;
+    font-size: 10px;
+    color: #282828;
+}
+  
+.close-button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+.close-button svg {
+    margin: 0;
+    padding: 0;
+    height: 60%;
+    width: 60%;
+    fill: #ffffffe3;
+}
+
+/* starsStyling */
+.stars-container{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    left: 70px;
+    top: -5px;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    height: 100px;
+    width: 100px;
+}
+
+#star1{
+    height: 70px;
+    width: 70px;
+}
+
+#star2{
+    height: 60px;
+    width: 60px;
+}
+
+.stars-container-right{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    right: 100px;
+    top: -5px;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    height: 100px;
+    width: 100px;
+}
+
+main{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

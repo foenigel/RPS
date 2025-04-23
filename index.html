@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS GAME</title>
+    <link href="https://fonts.cdnfonts.com/css/arcade-classic" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/inter" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <!-- Link to external CSS -->
+    <script src="javascript.js" defer></script> <!-- Link to external JavaScript -->
+</head>
+<body>
+    <div class="main-buttons">
+    <button id="theme-toggle">Toggle Dark/Light Mode</button>
+    <button id="soundbttn" onclick="playPause()">Mute</button>
+</div>
+    <div class="table-score">
+        <table>
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Draws</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>You</td>
+                    <td id="user-wins">0</td>
+                    <td id="user-losses">0</td>
+                    <td id="user-ties">0</td>
+                </tr>
+                <tr>
+                    <td>PC</td>
+                    <td id="pc-wins">0</td>
+                    <td id="pc-losses">0</td>
+                    <td id="pc-ties">0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="clouds">
+        <div class="cloud x1"></div>
+        <div class="cloud x2"></div>
+        <div class="cloud x3"></div>
+        <div class="cloud x4"></div>
+        <div class="cloud x5"></div>
+    </div>
+    <div class="main-wrapper">
+      
+    <header>
+   
+    </header>
+
+    <main>
+        <div class="cards-container">
+            <div class="pc-card">
+                <h2>PC</h2>
+                <div class="selection-circle pcdesign"><h2>?</h2>
+                </div>
+                
+                <div class="ready-container">
+                <div class="ready-button">
+                <img src="images/Ready_.svg" alt="">
+                </div>
+                <button></button>
+                </div>
+            </div>
+        
+            <div class="versus-icon">
+                <img src="images/RPS GAME.svg" alt="">
+            </div>
+        
+            <div class="flip-card" id="user-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                    <h3>Don't Mind Me</h3>
+                    <p>Have Fun Playing!</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="shine"></div>
+                        <h2>YOU</h2>
+                        <div class="selection-circle userdesign">
+                            <img src="" id="user-selection" alt="" style="display: none;">
+                        </div>
+                        <div class="usermoves">
+                            <div class="arrow-select" id="arrow-select">
+                                <img src="images/arrow-selection.svg"alt="">
+                            </div>
+                            <div class="options">
+                            <img src="images/Rock.svg" alt="Rock" id="move" class="gesture-option" onclick="selectGesture('Rock');
+                            useroption = 'Rock';
+                            ">
+                            <img src="images/Paper.svg" id="move" alt="Paper" class="gesture-option" onclick="selectGesture('Paper')
+                            useroption = 'Paper';
+                            ">
+                            <img src="images/Scissors.svg" id="move" alt="Scissors" class="gesture-option" onclick="selectGesture('Scissors')
+                            useroption = 'Scissors';
+                            ">
+                            </div>
+                        </div>
+                        <div class="go-container">
+                            <div class="go-button">
+                                <img src="images/GO.svg" alt="">
+                            </div>
+                            <button id="chance" onclick="
+                            readyGo()
+                "></button>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+
+        <div id="game-result">
+            <button class="close-button" onclick="closeGame()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg></button>
+            <div class="stars-container">
+                <img src="images/star2.png" id="star2" alt="">
+                <img src="images/star1.png" id="star1" alt="">
+            </div>
+            <div id="game-result-text"></div>
+            <p id="computer-move-text"></p>
+            <div class="stars-container-right">
+                <img src="images/star1.png" id="star1" alt="">
+                <img src="images/star2.png" id="star2" alt="">
+            </div>
+        </div>
+
+        <div class="ingame-instructions">
+            <h3>Welcome to the Rock-Paper-Scissors game! Here’s how to play:</h3>
+            <p>Select Your Gesture: Click on one of the three hand gestures: Rock, Paper, or Scissors.
+                Rock beats Scissors (Rock crushes Scissors)
+                Scissors beats Paper (Scissors cuts Paper)
+                Paper beats Rock (Paper covers Rock)
+                Go: After selecting your gesture, click the "Go" button to submit your choice.
+                Play Against the PC: The computer will randomly select its gesture.
+                Determine the Winner: The game will announce the winner based on the rules:
+                If you and the PC choose the same gesture, it's a tie!
+                If your gesture beats the PC's gesture, you win!
+                If the PC's gesture beats yours, you lose!</p>
+        </div>
+   
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Foe.Nigel</p>
+    </footer>
+
+</div>
+</body>
+</html>
